@@ -1,0 +1,71 @@
+<style media="screen">
+.hide-on-med-and-down a:visited,  .hide-on-med-and-down a:hover, .hide-on-med-and-down a:active {
+  color: white;
+  text-decoration: none;
+
+}
+.side-nav a:visited,  .side-nav a:hover, .side-nav a:active {
+  text-decoration: none;
+
+}
+
+.set-font-size{
+  font-size: 13px;
+}
+
+nav{
+    position: fixed;
+
+    /*background-color: red;*/
+    /*opacity: 0;*/
+
+}
+
+
+
+</style>
+
+<nav style="height=5px;">
+   <div class="nav-wrapper grey darken-3">
+
+       <%= link_to root_url do %>
+       <%= image_tag "orange_logo.png", :height=> "45px" , :class => "brand-logo center", :style => "margin-top: 10px;" %>
+       <% end %>
+
+
+     <a  data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars" style="padding-left: 10px;" ></i></a>
+
+     <ul class="right hide-on-med-and-down" >
+       <% if current_user %>
+           <ul>
+             <li><%= current_user.email %></li>
+             <li><%= link_to "Log Out", logout_path, method: "delete", class: "set-font-size"%></li>
+           </ul>
+         <% else %>
+           <ul>
+             <li><%= link_to "Log In", 'login', class: "set-font-size" %></li>
+             <li><%= link_to "Register", 'signup', class: "set-font-size" %></li>
+           </ul>
+        <% end %>
+     </ul>
+
+     <ul class="side-nav" id="mobile-demo">
+       <%= link_to root_url do %>
+       <%= image_tag "orange_logo.png", :height=> "45px" , :class => "brand-logo center", :style => "margin-top: 10px;" %>
+       <% end %>
+
+       <% if current_user %>
+           <ul>
+             <li><%= current_user.email %></li>
+             <li><%= link_to "Log Out", logout_path, method: "delete", class: "set-font-size" %></li>
+           </ul>
+         <% else %>
+           <ul>
+             <li><%= link_to "Login", 'login', class: "set-font-size" %></li>
+             <li><%= link_to "Register", 'signup', class: "set-font-size" %></li>
+           </ul>
+        <% end %>
+     </ul>
+
+   </div>
+ </nav>
