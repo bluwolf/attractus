@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//
+// img{
+//   top: 100px;
+// }
+
+
 
 .bg {
   background: asset_url('jumbotron_bg.jpg') no-repeat center center;
@@ -15,11 +21,25 @@
   z-index: -1;
 }
 
-.jumbotron {
-  height: 400px;
-  color: white;
-  text-shadow: #444 0 1px 1px;
-  background:transparent;
+
+.parallax{
+  margin-bottom: -150px;
+
+}
+.parallax-container {
+      height: 450px;
+      text-shadow: #444 0 1px 1px;
+      color: white;
+}
+
+#title-panel{
+  margin-top: 50px;
+  h1{
+    font-size: 60px;
+  }
+  p{
+    font-size: 23px;
+  }
 }
 
 
@@ -41,15 +61,30 @@
   .twitter-typeahead{
     width: 100%;
     display: block !important;
-    font-size: 10px;
+    // padding-right: 67px;
   }
 
   .tt-dropdown-menu{
+
     top: 32px !important;
     width: 100%;
     color: white;
     text-shadow: none;
-    font-size: 10px;
+    font-size: 17px;
     background-color: black;
     opacity: 0.5;
   }
+
+#left-panel, #right-panel{
+
+  height: 550px;
+}
+
+#bottom-panel{
+  margin-top: 100px;
+}
+
+.row{
+
+  margin-bottom: 0;
+}

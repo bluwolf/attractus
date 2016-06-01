@@ -13,23 +13,28 @@
   font-size: 13px;
 }
 
-nav{
-    position: fixed;
 
-    /*background-color: red;*/
-    /*opacity: 0;*/
+nav {
+    position: fixed;
+    height: 50px;
+    line-height: 50px;
+    z-index: 1;
 
 }
 
 
 
+
+
+
+
 </style>
 
-<nav style="height=5px;">
-   <div class="nav-wrapper grey darken-3">
+<nav style="">
+   <div class="nav-wrapper grey darken-3" style="">
 
        <%= link_to root_url do %>
-       <%= image_tag "orange_logo.png", :height=> "45px" , :class => "brand-logo center", :style => "margin-top: 10px;" %>
+       <%= image_tag "orange_logo.png", :height=> "35px" , :class => "brand-logo center", :style => "margin-top: 10px;" %>
        <% end %>
 
 

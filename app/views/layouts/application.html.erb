@@ -14,11 +14,20 @@
 
 </body>
 
+<!-- google map api -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCx0luooYlz57a-igxuMQW3nDZWdMLL0IM&callback=initMap"
+  async defer>
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCx0luooYlz57a-igxuMQW3nDZWdMLL0IM&libraries=places">
+</script>
+
 <script>
   $( document ).ready(function() {
+       $('.parallax').parallax();
+       $('body').scrollspy();
 
 
-});
+    });
     //parallax effect for jumbotron
     var jumboHeight = $('.jumbotron').outerHeight();
     function parallax(){
@@ -31,33 +40,51 @@
     });
 
     //nav wrapper scroll effect
-    $(document).on('scroll', function (e) {
-    $('nav').css('opacity', ($(document).scrollTop() / 50));
-    });
+    // $(document).on('scroll', function (e) {
+    // $('nav').css('opacity', ($(document).scrollTop() / 50));
+    // });
 
     //typeahead for parks
 
       var engine = new Bloodhound({
           datumTokenizer: Bloodhound.tokenizers.obj.whitespace('d'),
           queryTokenizer: Bloodhound.tokenizers.whitespace,
-          local: [{
-              d: "Alabama"
-          }, {
-              d: "Alaska"
-          }, {
-              d: "Arizona"
-          }, {
-              d: "Arkansas"
-          }]
+          local: [{d: "Denali"}, {d: "Gates of the Arctic"}, {d: "Glacier Bay"}, {d: "Katmai"}
+        , {d: "Kenai Fjords"}, {d: "Kobuk Valley"}, {d: "Lake Clark"}, {d: "Wrangell - St. Elias"}, {d: "American Samoa"}, {d: "Grand Canyon"}
+        , {d: "Petrified Forest"}, {d: "Saguaro"}, {d: "Hot Springs"}, {d: "Channel Islands"}, {d: "Death Valley"}, {d: "Joshua Tree"}
+        , {d: "Kings Canyon"}, {d: "Lassen Volcanic"}, {d: "Redwood"}, {d: "Sequoia"}, {d: "Yosemite"}, {d: "Black Canyon of the Gunnison"}
+        , {d: "Great Sand Dunes"}, {d: "Mesa Verde"}, {d: "Rocky Mountain"}, {d: "Biscayne"}, {d: "Dry Tortugas"}, {d: "Everglades"}
+        , {d: "Haleakala"}, {d: "Hawaii Volcanoes"}, {d: "Yellowstone"}, {d: "Mammoth Cave"}, {d: "Acadia"}, {d: "Isle Royale"}, {d: "Voyageurs"}
+        , {d: "Glacier"}, {d: "Great Basin"}, {d: "Carlsbad Caverns"}, {d: "Great Smoky Mountains"}, {d: "Theodore Roosevelt"}, {d: "Cuyahoga Valley"}
+        , {d: "Crater Lake"}, {d: "Congaree"}, {d: "Badlands"}, {d: "Wind Cave"}, {d: "Great Smoky Mountains"}, {d: "Big Bend"}, {d: "Guadalupe Mountains"},
+        {d: "Virgin Islands"}, {d: "Arches"}, {d: "Bryce Canyon"}, {d: "Capitol Reef"}, {d: "Canyonlands"}, {d: "Zion"}, {d: "Shenandoah"}, {d: "Mount Rainier"},
+        {d: "North Cascades"}, {d: "Olympic"}, {d: "Grand Teton"}]
       });
 
       // initialize the bloodhound suggestion engine
       engine.initialize();
 
-      $('#the-basics .typeahead').typeahead(null, {
+      $('#search-box .typeahead').typeahead(null, {
           displayKey: 'd',
           source: engine.ttAdapter()
+      }).on('typeahead:selected', function(e, data) {
+          // alert(data.d);
+          var hash = "#bottom-panel";
+          $('html, body').animate({
+
+            scrollTop: $(hash).offset().top-50
+          }, 800, function(){
+
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          });
       });
+
+      // $('.typeahead').typeahead({
+      //   // Setup typeahead here
+      // }).on('typeahead:selected', function(e, data) {
+      //   $(form).submit();
+      // });
 
 
 </script>
