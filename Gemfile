@@ -27,8 +27,9 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip'
-gem 'aws-sdk'
+gem "figaro"
+gem "paperclip"
+gem "aws-sdk", "< 2.0"
 gem 'will_paginate', '~> 3.0.7'
 
 # Use ActiveModel has_secure_password

@@ -2,9 +2,11 @@
   <% if @messages%>
     <% @messages.each do |m|%>
       <div class="avatar col-lg-2">
+        <%= image_tag(m.user_avatar.url(:thumb), :class => "message-avatar") %>
+        <%= label_tag m.user_username, nil, class: 'message-username' %>
         avatar
       </div>
-      <div class="message-content col-lg-10">  
+      <div class="message-content col-lg-10">
           <p style="font-style: italic;"><%= m.content%></p>
       </div>
     <%end%>
