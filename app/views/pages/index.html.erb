@@ -1,0 +1,82 @@
+<div class="parallax-container">
+   <div class="parallax">  <%= image_tag "jumbotron_bg.jpg" %></div>
+
+   <div class="container" id="title-panel">
+     <h1 class="display-3 text-center white-text" style="padding-top:50px;">Attractus</h1>
+     <p class="lead text-center white-text">Find your favorite national park.</p>
+   </div>
+
+   <div class="container">
+     <div class="row">
+       <div class="col-lg-6 col-lg-offset-3">
+         <div class="input-field col-lg-12" id="search-box">
+           <%= form_tag("results", :method => "get", id: "search-form") do %>
+           <div class="col-lg-11" style="">
+              <%= text_field_tag :search, params[:search],class: "form-control typeahead",placeholder: "Search for a national park...", href:"#bottom-panel" %>
+           </div>
+           <div class="col-lg-1" style="">
+             <%= button_tag( :class => "search-button", :style => "padding-left:0px;") do %>
+               <i class="fa fa-search fa-2x"></i>
+              <% end %>
+           </div>
+           <% end %>
+
+         </div>
+       </div>
+     </div>
+
+   </div>
+
+
+
+ </div>
+
+
+<div class="container section scrollspy" id="bottom-panel">
+
+
+  <div class="row ">
+    <div id="left-panel" class="col-lg-4 card-panel">
+    </div>
+    <div id="right-panel" class="col-lg-8 card-panel">
+    </div>
+  </div>
+
+
+      <div id="description"><%= render 'description' %></div>
+</div>
+
+
+<script>
+
+
+    //scrollspy upon enter
+    // document.getElementById('search-box').onkeypress = function(e){
+    //   if (!e) e = window.event;
+    //   var keyCode = e.keyCode || e.which;
+    //   if (keyCode == '13'){()
+    //
+    //
+    //   }
+    // }
+
+
+    // google map setup
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('right-panel'), {
+          center: {lat: 34.0522, lng: -118.2437},
+          zoom: 7
+        });
+      }
+      // get geolocation of user
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function (position) {
+              initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+              map.setCenter(initialLocation);
+          });
+      }
+
+
+
+</script>

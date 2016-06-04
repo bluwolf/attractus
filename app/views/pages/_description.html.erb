@@ -1,0 +1,29 @@
+<div class="row" >
+  <div class="card col-lg-12">
+
+    <% if @park %>
+      <div class="card-image col-lg-4" >
+
+        <%= image_tag (@park.image), :height=> "220px" %>
+        <span class="card-title"><%= @park.name %></span>
+      </div>
+
+      <div class="card-content col-lg-8">
+        <%= @park.description %>
+
+      </div>
+    <% else %>
+        <div class="card-image col-lg-4" >
+
+          <%= image_tag "test.jpg", :height=> "220px" %>
+          <span class="card-title">Card Title</span>
+        </div>
+
+        <div class="card-content col-lg-8">
+          <p>I am a very simple card. I am good at containing small bits of information.
+           I am convenient because I require little markup to use effectively.</p>
+        </div>
+
+    <% end %>
+  </div>
+</div>
