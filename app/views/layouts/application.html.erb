@@ -83,7 +83,27 @@
 
       });
 
+      // avatar preview
+      var avatar_preview = $(".upload-preview img");
+      $(".file").change(function(event){
+         var input = $(event.currentTarget);
+         var num_files = input[0].files.length;
 
+         for (var file_index = 0; file_index < num_files; file_index++) {
+           var file = input[0].files[file_index];
+           var reader = new FileReader();
+
+           reader.onload = function(e){
+             file_index = file_index-1; // prevent automatic file_index increment
+             image_base64 = e.target.result;
+             avatar_preview.attr("src", image_base64); // avatar upload preview
+             avatar_preview.css("background", "none");
+           };
+           reader.readAsDataURL(file);
+         }
+
+
+      });
 
 
 </script>

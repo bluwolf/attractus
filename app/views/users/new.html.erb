@@ -6,6 +6,17 @@
 
     <%= form_for(@user, multipart: true, :html => {:class => "form-horizontal center"}  ) do |f| %>
 
+
+      <%= f.label :avatar, "Choose an Avatar" %><br>
+      <div class="upload-preview">
+            <img />
+      </div>
+      <label for="file-upload" class="custom-file-upload">
+          <i class="fa fa-upload"></i> Up
+      </label>
+      <%= f.file_field :avatar , :class=>"file", :id =>'file-upload'%>
+
+
       <%= f.text_field :name, :class=> "input-field", :placeholder => "Name", :autocomplete => :off,:style =>"margin-top: 20%;", :autofocus => true , :required => true%>
       <%= f.email_field :email, :class=> "input-field",:placeholder => "Email", :style =>"margin-top: 5%;" , :autocomplete => :off, :required => true%>
       <%= f.password_field :password, :class=> "input-field", :placeholder => "Password", :style =>"margin-top: 5%;" , :autocomplete => :off, :required => true%>
