@@ -47,7 +47,7 @@
       var hash = "#bottom-panel";
       $('html, body').animate({
 
-        scrollTop: $(hash).offset().top-50
+        scrollTop: $(hash).offset().top-40
       }, 800, function(){
         window.location.hash = hash;
       });
@@ -55,11 +55,6 @@
       });
 
     });
-
-    //nav wrapper scroll effect
-    // $(document).on('scroll', function (e) {
-    // $('nav').css('opacity', ($(document).scrollTop() / 50));
-    // });
 
     //typeahead for parks
 
@@ -85,14 +80,7 @@
           displayKey: 'd',
           source: engine.ttAdapter()
       }).on('typeahead:selected', function(e, data) {
-          // var hash = "#bottom-panel";
-          // $('html, body').animate({
-          //
-          //   scrollTop: $(hash).offset().top-50
-          // }, 800, function(){
-          //
-          //   window.location.hash = hash;
-          // });
+
       });
 
 

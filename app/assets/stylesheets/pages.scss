@@ -92,16 +92,21 @@
     opacity: 0.5;
   }
 
-#left-panel, #right-panel{
+#left-panel, #map-panel{
 
-  height: 500px;
+  height: 700px;
 }
 
 #bottom-panel{
   margin-top: 100px;
+  width: 1900px;
 }
 
 .row{
 
   margin-bottom: 0;
+}
+
+.card{
+  box-shadow: none;
 }

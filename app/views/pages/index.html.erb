@@ -11,72 +11,72 @@
        <div class="col-lg-6 col-lg-offset-3">
          <div class="input-field col-lg-12" id="search-box">
            <%= form_tag("results", :method => "get", id: "search-form") do %>
-           <div class="col-lg-11" style="">
-              <%= text_field_tag :search, params[:search],class: "form-control typeahead",placeholder: "Search for a national park...", href:"#bottom-panel" %>
+           <div class="" style="">
+              <%= text_field_tag :search, params[:search], id: "address", class: "form-control typeahead", placeholder: "Search for a national park...", href:"#bottom-panel" %>
            </div>
-           <div class="col-lg-1" style="">
-             <%= button_tag( :class => "search-button", :style => "padding-left:0px;") do %>
+           <div class="text-center" style="">
+             <%= button_tag( :class => "search-button", :style => "padding-left:0px;", :id =>"search-submit") do %>
                <i class="fa fa-search fa-2x"></i>
               <% end %>
            </div>
            <% end %>
-
          </div>
        </div>
      </div>
-
    </div>
-
-
-
  </div>
 
 
 <div class="container section scrollspy" id="bottom-panel">
-
-
   <div class="row ">
-    <div id="left-panel" class="col-lg-4 card-panel">
+    <div id="left-panel" class="col-lg-6 card-panel">
+      <div class="row">
+        <div id="description"><%= render 'description' %></div>
+      </div>
+      <div class="row">
+          <div id="message">  <%=render 'message'%></div>
+      </div>
     </div>
-    <div id="right-panel" class="col-lg-8 card-panel">
+
+    <div id="map-panel" class="col-lg-6 card-panel">
     </div>
   </div>
 
 
-      <div id="description"><%= render 'description' %></div>
+
 </div>
 
 
 <script>
-
-
-    //scrollspy upon enter
-    // document.getElementById('search-box').onkeypress = function(e){
-    //   if (!e) e = window.event;
-    //   var keyCode = e.keyCode || e.which;
-    //   if (keyCode == '13'){()
-    //
-    //
-    //   }
-    // }
-
-
     // google map setup
       var map;
       function initMap() {
-        map = new google.maps.Map(document.getElementById('right-panel'), {
+        map = new google.maps.Map(document.getElementById('map-panel'), {
           center: {lat: 34.0522, lng: -118.2437},
-          zoom: 7
+          zoom: 8
+        });
+
+        var geocoder = new google.maps.Geocoder();
+         document.getElementById('search-submit').addEventListener('click', function() {
+
+           geocodeAddress(geocoder, map);
+
+         });
+      }
+      // find park through geocoder
+      function geocodeAddress(geocoder, resultsMap) {
+        var address = document.getElementById('address').value;
+        address = address + " National Park";
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === google.maps.GeocoderStatus.OK) {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
         });
       }
-      // get geolocation of user
-      if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function (position) {
-              initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-              map.setCenter(initialLocation);
-          });
-      }
-
-
-
 </script>

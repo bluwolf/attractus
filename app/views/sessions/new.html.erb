@@ -1,5 +1,14 @@
-<%= form_for(:session, url: login_path) do |f| %>
-  <%= f.email_field :email, :placeholder => "Email" %>
-  <%= f.password_field :password, :placeholder => "Password" %>
-  <%= f.submit "Log in", class: "btn-submit" %>
-<% end %>
+
+
+
+<div class="container " style="margin-bottom:100px; height: 450px; width: 400px;">
+  <div class="form">
+    <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.email_field :email, :class=> "input-field ",:placeholder => "Email", :style =>"margin-top: 20%;", :autocomplete => :off, :autofocus => true, :required => true %>
+      <%= f.password_field :password, :class=> "input-field", :placeholder => "Password", :style=> "margin-top: 10%", :autocomplete => :off,:required => true %>
+      <%= f.submit "Log In", class: "submit-button", :style => " margin-top: 10%; margin-left: auto; margin-right: auto; display: block" %>
+    <% end %>
+
+  </div>
+
+</div>
