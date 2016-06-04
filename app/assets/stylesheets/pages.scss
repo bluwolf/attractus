@@ -107,13 +107,18 @@
   margin-bottom: 0;
 }
 
-.card{
+
+.information-panel{
   box-shadow: none;
 }
 
-.message-avatar{
+.one-message{
+  border-top: 1px solid #eeeeee;
+  padding-top: 15px;
+}
 
-   width: 50px;
+.message-avatar{
+  width: 50px;
 	height: 50px;
 	border-radius: 150px;
 	-webkit-border-radius: 150px;
@@ -123,7 +128,15 @@
 
 }
 .message-username{
- color: #00bcd4;
- font-size: 15px;
+ color: #424242;
+ font-size: 12px;
  font-weight: bold;
+}
+
+.message-content{
+  padding-top: 15px;
+}
+
+.message-avatar, .message-username{
+  margin-left: 10px;
 }

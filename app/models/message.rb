@@ -3,6 +3,6 @@ class Message < ActiveRecord::Base
   belongs_to :user
 
   validates :content, presence: true, length: { minimum: 5 }
-  delegate :username, to: :user, allow_nil: true, prefix: true
+  delegate :name, to: :user, allow_nil: true, prefix: true
   delegate :avatar, to: :user, allow_nil: true, prefix: true
 end

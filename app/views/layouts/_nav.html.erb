@@ -23,12 +23,6 @@ nav {
 
 }
 
-
-
-
-
-
-
 </style>
 
 <nav style="">
@@ -44,7 +38,7 @@ nav {
      <ul class="right hide-on-med-and-down" >
        <% if current_user %>
            <ul>
-             <li><%= current_user.email %></li>
+             <li><%= current_user.name %></li>
              <li><%= link_to "Log Out", logout_path, method: "delete", class: "set-font-size"%></li>
            </ul>
          <% else %>
@@ -62,7 +56,7 @@ nav {
 
        <% if current_user %>
            <ul>
-             <li><%= current_user.email %></li>
+             <li><%= current_user.name %></li>
              <li><%= link_to "Log Out", logout_path, method: "delete", class: "set-font-size" %></li>
            </ul>
          <% else %>
