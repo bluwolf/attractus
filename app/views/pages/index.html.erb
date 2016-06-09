@@ -12,7 +12,7 @@
          <div class="input-field col-lg-12" id="search-box">
            <%= form_tag("results", :method => "get", id: "search-form") do %>
            <div class="" style="">
-              <%= text_field_tag :search, params[:search], id: "address", class: "form-control typeahead", placeholder: "Search for a national park...", href:"#bottom-panel" %>
+              <%= text_field_tag :search, params[:search], id: "search-field", class: "form-control typeahead", placeholder: "Search for a national park...", href:"#bottom-panel" %>
            </div>
            <div class="text-center" style="">
              <%= button_tag( :class => "search-button", :style => "padding-left:0px;", :id =>"search-submit") do %>
@@ -28,22 +28,26 @@
 
 
 <div class="container section scrollspy" id="bottom-panel">
+
+
   <div class="row ">
     <div id="left-panel" class="col-lg-6 card-panel">
+      <div id="disable-panel-text" class="row text-center">
+        <p class="disable-panel-text">
+          Search for a National Park
+        </p>
+      </div>
       <div class="row">
         <div id="description"><%= render 'description' %></div>
       </div>
       <div class="row">
-          <div id="message">  <%=render 'message'%></div>
+          <div id="post">  <%=render 'post',  :remote => true%></div>
       </div>
     </div>
 
     <div id="map-panel" class="col-lg-6 card-panel">
     </div>
   </div>
-
-
-
 </div>
 
 

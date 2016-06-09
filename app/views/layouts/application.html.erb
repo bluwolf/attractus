@@ -25,9 +25,15 @@
   $( document ).ready(function() {
        $('.parallax').parallax();
        $('body').scrollspy();
+       $("#bottom-panel").addClass("disable-panel");
+       $("#input").hide();
+
+
+
 
 
     });
+
     //parallax effect for jumbotron
     var jumboHeight = $('.jumbotron').outerHeight();
     function parallax(){
@@ -42,19 +48,29 @@
     //search form ajax
     $(function () {
       $('#search-form').submit(function () {
-      $.get(this.action, $(this).serialize(), null, 'script');
+        //ajax
+        $.get(this.action, $(this).serialize(), null, 'script');
 
-      var hash = "#bottom-panel";
-      $('html, body').animate({
-
+        // fade effect for lower panel
+        $("#bottom-panel").removeClass("disable-panel");
+        $("#disable-panel-text").remove();
+        $("#input").show();
+        $( "#description, #post" ).fadeOut( 100, function() {
+          $("#description, #post").fadeIn(800);
+        });
+        // scroll animation
+        var hash = "#bottom-panel";
+        $('html, body').animate({
         scrollTop: $(hash).offset().top-40
-      }, 800, function(){
-        window.location.hash = hash;
-      });
-      return false;
+        }, 800, function(){
+          window.location.hash = hash;
+        });
+
+        return false;
       });
 
     });
+
 
     //typeahead for parks
 
@@ -80,7 +96,8 @@
           displayKey: 'd',
           source: engine.ttAdapter()
       }).on('typeahead:selected', function(e, data) {
-
+        $("#search-field").text(data.d);
+        $("#search-submit").click();
       });
 
       // avatar preview
@@ -101,8 +118,6 @@
            };
            reader.readAsDataURL(file);
          }
-
-
       });
 
 

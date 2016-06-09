@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   root 'pages#index'
   get "results" =>"pages#index"
 
+  get 'messages' => 'messages#new'
+  post 'messages' => 'messages#create'
+  resources :messages
+  # get '/' => "pages#new"
+  # post '/' => 'pages#create'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   get 'signup' => 'users#new'

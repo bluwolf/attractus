@@ -2,11 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//
-// img{
-//   top: 100px;
-// }
+.disable-panel{
+  opacity: 0.4;
+   pointer-events: none;
+}
 
+.disable-panel-text{
+  color: black;
+  font-size: 45px;
+  height: 700px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 
@@ -58,21 +69,36 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
+.post-button{
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+
+}
+.post-button:hover{
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: grey;
+}
+.post-button:visited{
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
 
 .input-field input[type=text] {
-    border-bottom: 1px solid white;
-    box-shadow: 0 1px 0 0 black;
-    color: white;
-    font-size: 20px;
-  }
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 black;
+  color: white;
+  font-size: 20px;
+}
 .input-field input[type=text]:focus {
-    border-bottom: 1px solid white;
-    box-shadow: 0 1px 0 0 black;
-  }
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 black;
+}
 
-  .input-field .prefix.active {
-    color: #000;
-  }
+.input-field .prefix.active {
+  color: #000;
+}
 
 
   .twitter-typeahead{
@@ -139,4 +165,16 @@
 
 .message-avatar, .message-username{
   margin-left: 10px;
+}
+
+#input-box{
+  position: absolute;
+  bottom: 0px;
+}
+#input-box input[type=text] {
+  box-shadow: 0 1px 0 0 grey;
+  font-size: 14px;
+}
+#input-box input[type=text]:focus {
+  box-shadow: 0 1px 0 0 grey;
 }

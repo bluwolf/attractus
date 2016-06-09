@@ -1,0 +1,63 @@
+<style>
+.pagination{
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5%;
+}
+
+.previous_page{
+  color: green;
+  content: "haha"
+}
+
+.next_page{
+
+}
+
+.centered{
+  position: absolute;
+  left: 0;
+  right: 0;
+  /*top: 50%;*/
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+
+
+
+  <% if @messages%>
+  <div class="message-content">
+     <%= render @messages %>
+  </div>
+  <%= will_paginate @messages, :page_links => false %>
+
+  <%end%>
+
+  <% if @park %>
+  <div class="row">
+      <div id="input">  <%=render :template => 'messages/new', :locals => {:park_id => @park_id}%></div>
+  </div>
+  <%end%>
+
+
+<script>
+//ajax pagination
+$(function() {
+  $('.pagination a').click(function () {
+                  $.get(this.href, null, null, 'script');
+                  return false;
+  });
+
+  $( ".message-content" ).fadeOut( 0, function() {
+    $(".message-content").fadeIn(800);
+  });
+
+  $(".pagination").addClass("text-center");
+
+
+});
+</script>

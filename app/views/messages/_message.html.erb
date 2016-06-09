@@ -1,0 +1,14 @@
+<div class="row one-message">
+  <div class="col-lg-offset-1">
+    <div class="avatar col-lg-2 text-center">
+
+      <%= image_tag(message.user_avatar.url(:thumb), :class => "message-avatar") %>
+      <%= label_tag message.user_name, nil, class: 'message-username' %>
+
+    </div>
+    <div class="message-content col-lg-10">
+        <p style="font-style: italic;"><%= message.content%></p>
+    </div>
+  </div>
+
+</div>
