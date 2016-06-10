@@ -14,6 +14,5 @@
 //= require jquery_ujs
 //= require materialize.min
 //= require bootstrap.min
-//= require turbolinks
 //= require bootstrap-typeahead-rails
-//= require_tree .
+//= require turbolinks
