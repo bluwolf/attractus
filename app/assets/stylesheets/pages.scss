@@ -72,12 +72,13 @@
 .post-button{
   border: none;
   background-color: rgba(0, 0, 0, 0);
+  border-radius: 10px;
 
 }
 .post-button:hover{
   border: none;
   background-color: rgba(0, 0, 0, 0);
-  color: grey;
+  color: white;
 }
 .post-button:visited{
   border: none;

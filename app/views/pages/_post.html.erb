@@ -1,28 +1,41 @@
 <style>
 .pagination{
-
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 5%;
+  bottom: 15%;
+
 }
 
 .previous_page{
-  color: green;
-  content: "haha"
+  position: absolute;
+  left: 30%;
 }
 
 .next_page{
-
+  position: absolute;
+  right: 30%;
 }
 
-.centered{
-  position: absolute;
-  left: 0;
-  right: 0;
-  /*top: 50%;*/
-  margin-left: auto;
-  margin-right: auto;
+.pagination-button{
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
+
+}
+.pagination-button:hover{
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: grey;
+  text-decoration: none;
+}
+.pagination-button:visited{
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.disabled{
+  color:grey;
 }
 </style>
 
@@ -57,6 +70,11 @@ $(function() {
   });
 
   $(".pagination").addClass("text-center");
+  $(".previous_page, .next_page").addClass("pagination-button");
+  $(".previous_page, .next_page").text("");
+  $(".previous_page").addClass("fa fa-arrow-left fa-2x");
+  $(".next_page").addClass("fa fa-arrow-right fa-2x");
+
 
 
 });

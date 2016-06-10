@@ -69,7 +69,7 @@
       }
       // find park through geocoder
       function geocodeAddress(geocoder, resultsMap) {
-        var address = document.getElementById('address').value;
+        var address = document.getElementById('search-field').value;
         address = address + " National Park";
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
