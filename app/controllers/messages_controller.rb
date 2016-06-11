@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     @message = Message.create :content=> params[:message][:content], :park_id => params[:message][:park_id], :user_id => params[:message][:user_id]
 
     if @message.save
-      puts "Message Save Successful"
+      flash[:notice] = "Message Save Successful"
        redirect_to '/'
 
     else

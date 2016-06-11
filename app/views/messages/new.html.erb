@@ -1,16 +1,16 @@
 <% if current_user %>
-  <div class="input-field col-lg-12 col-lg-offset-1" id="input-box">
+  <div class="input-field col-lg-12 col-xs-12 col-lg-offset-1" id="input-box">
 
 
 
     <%= form_for @message, :html => {:id => "input-form"}, :url => url_for(:controller => 'messages', :action => 'create') do |f|%>
       <%= f.hidden_field :park_id, :value => park_id%>
       <%= f.hidden_field :user_id, :value => current_user.id %>
-      <div class="col-lg-9" style="padding-right:0px;">
+      <div class="col-lg-9 col-xs-9" style="padding-right:0px;">
          <%= f.text_field :content, :id => "address", :class=> "user-input black-text", :placeholder=> "Comment on this park", :autocomplete => :off %>
       </div>
-      <div class="col-lg-3" style="">
-        <%= f.submit "Post", :class => 'post-button btn waves-effect waves-light grey darken-3 ', :id =>"input-submit"%>
+      <div class="col-lg-3 col-xs-3" style="">
+        <%= f.submit "ok", :class => 'post-button btn waves-effect waves-light grey darken-3 ', :id =>"input-submit"%>
 
       </div>
 

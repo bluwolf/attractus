@@ -3,7 +3,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 15%;
+  /*bottom: 15%;*/
 
 }
 
@@ -46,7 +46,10 @@
   <div class="message-content">
      <%= render @messages %>
   </div>
-  <%= will_paginate @messages, :page_links => false %>
+  <div class="row">
+    <%= will_paginate @messages, :page_links => false %>
+  </div>
+
 
   <%end%>
 

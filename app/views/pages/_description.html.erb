@@ -4,12 +4,13 @@
     <% if @park %>
       <div class="card-image col-lg-6" >
 
-        <%= image_tag (@park.image), :height=> "220px" %>
+        <%= image_tag (@park.image) %>
         <span class="card-title"><%= @park.name %></span>
       </div>
 
       <div class="card-content col-lg-6">
-        <%= @park.description %>
+        <p><%= @park.description %></p>
+
 
       </div>
     <% else %>

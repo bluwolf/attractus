@@ -10,7 +10,7 @@
 .disable-panel-text{
   color: black;
   font-size: 45px;
-  height: 700px;
+  height: 300px;
   position: absolute;
   left: 0;
   right: 0;
@@ -19,15 +19,11 @@
   margin-right: auto;
 }
 
-
-
 .bg {
   background: asset_url('jumbotron_bg.jpg') no-repeat center center;
-  // background: url(<%= image_tag "orange_logo.png"%>) no-repeat center center;
-
   position: fixed;
   width: 100%;
-  height: 400px; /*same height as jumbotron */
+  height: 400px;
   top:0;
   left:0;
   z-index: -1;
@@ -120,23 +116,25 @@
   }
 
 #left-panel, #map-panel{
-
   height: 700px;
 }
 
+
+
 #bottom-panel{
   margin-top: 100px;
-  width: 1900px;
 }
 
 .row{
-
   margin-bottom: 0;
 }
 
 
 .information-panel{
   box-shadow: none;
+  img{
+    height: 220px;
+  }
 }
 
 .one-message{
@@ -150,9 +148,6 @@
 	border-radius: 150px;
 	-webkit-border-radius: 150px;
 	-moz-border-radius: 150px;
-
-
-
 }
 .message-username{
  color: #424242;
@@ -178,4 +173,23 @@
 }
 #input-box input[type=text]:focus {
   box-shadow: 0 1px 0 0 grey;
+}
+
+
+@media all and (max-width: 768px) {
+  #left-panel, #map-panel{
+    height: 900px;
+  }
+  .one-message{
+    height: 100px;
+
+  }
+  #map-panel{
+    height: 300px;
+  }
+  .message-avatar{
+    width: 40px;
+  	height: 40px;
+  }
+
 }
