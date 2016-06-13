@@ -1,6 +1,6 @@
 
 
-<div class="signup">
+<body class="signup">
   <div class="container card-panel" style="margin-top:100px; margin-bottom:100px; height: 470px; width: 400px;">
     <div class="form">
 
@@ -21,11 +21,11 @@
       <%= f.email_field :email, :class=> "input-field",:placeholder => "Email", :style =>"margin-top: 5%;" , :autocomplete => :off, :required => true%>
       <%= f.password_field :password, :class=> "input-field", :placeholder => "Password", :style =>"margin-top: 5%;" , :autocomplete => :off, :required => true%>
 
-      <%= f.submit "Register", class: "actions", :style => " margin-top: 10%; margin-left: auto; margin-right: auto; display: block" %>
+      <%= f.submit "Register", class: "waves-effect waves-light btn grey darken-3 col-lg-12 col-xs-12", :style => " margin-top: 10%; margin-left: auto; margin-right: auto; display: block" %>
 
     <% end %>
 
 
     </div>
   </div>
-</div>
+</body>

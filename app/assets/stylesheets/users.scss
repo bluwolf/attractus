@@ -1,6 +1,15 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body.signup {
+  background: asset_url('signup-background.jpeg') no-repeat center center;
+  position: fixed;
+  width: 100%;
+
+  top:0;
+  left:0;
+  z-index: -1;
+}
 
 .upload-preview img{
   //  border-radius: 50%;
@@ -22,7 +31,7 @@ input[type="file"] {
 
     width: 90px;
     height: 30px;
-    background-color: #00bcd4;
+    background-color: grey;
     border: none;
     color: #fff;
     cursor: pointer;
