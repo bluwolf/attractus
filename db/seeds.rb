@@ -7,13 +7,25 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 message_list = [
-  [ "A very beautiful place",1, 2],
+  [ "Someday I will be here again"],
+  [ "This place makes me forget all the sadness"],
+  [ "No regrets"],
+  [ "I want to shout love to my famiy"],
+  [ "I will bring my dad here someday"],
+  [ " Most beautiful place I've ever seen"],
+  [ "I wish I can fly"],
+  [ "Someday"]
+
 
 ]
 
 
 
+$i = 1
+$num = 57
 
-message_list.each do |content, park_id, user_id|
-  Message.create( content: content, park_id: park_id, user_id: user_id)
+while $i < $num  do
+  content = message_list.sample
+    Message.create( content: content[0], park_id: $i, user_id: rand(8..11))
+   $i +=1
 end
