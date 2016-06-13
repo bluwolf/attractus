@@ -68,7 +68,6 @@
 
 
     //typeahead for parks
-
       var engine = new Bloodhound({
           datumTokenizer: Bloodhound.tokenizers.obj.whitespace('d'),
           queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -87,13 +86,30 @@
       // initialize the bloodhound suggestion engine
       engine.initialize();
 
-      $('#search-box .typeahead').typeahead(null, {
+
+      $('#search-box .typeahead').typeahead({
+        hint: false,
+        highlight: true,
+        minLength: 1,
+        autoSelect: true
+      }, {
           displayKey: 'd',
           source: engine.ttAdapter()
       }).on('typeahead:selected', function(e, data) {
         $("#search-field").text(data.d);
         $("#search-submit").click();
+      }).on('keyup', function(e) {
+          if(e.which == 13) {
+
+            var text = $(".tt-suggestion:first-child").text();
+            $("#search-field").text(text);
+            // alert("searchfieldval= "+ $("#search-field").text() );
+            // $("#search-submit").click();
+          }
       });
+
+
+
 
       // avatar preview
       var avatar_preview = $(".upload-preview img");
